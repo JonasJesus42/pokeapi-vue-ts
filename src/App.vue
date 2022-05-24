@@ -8,7 +8,7 @@
       <router-link to="/team" class="link">Team</router-link>
     </div>
   </div>
-  <router-view />
+ <!--  <router-view /> -->
 </template>
 
 <script lang="ts">
