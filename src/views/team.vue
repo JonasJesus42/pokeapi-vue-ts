@@ -7,7 +7,7 @@
     </section>
 </template>
 <script lang="ts">
-import NewCardPokemon from "../components/newCardPokemon.vue";
+import NewCardPokemon from "../components/NewCardPokemon.vue";
     export default{
     components: { NewCardPokemon }
 }

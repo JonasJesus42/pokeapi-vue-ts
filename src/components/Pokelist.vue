@@ -7,7 +7,7 @@
 
 <script lang="ts">
 import store from '../store';
-import Card from './card.vue';
+import Card from './Card.vue';
 
 export default {
     data() {

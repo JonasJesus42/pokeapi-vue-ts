@@ -1,6 +1,6 @@
 <script lang="ts">
-import MyTeam from '../components/myteam.vue'
-import Pokelist from '../components/pokelist.vue'
+import MyTeam from '../components/Myteam.vue'
+import Pokelist from '../components/Pokelist.vue'
 
 export default {
   components: {

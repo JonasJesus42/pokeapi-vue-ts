@@ -6,7 +6,7 @@
 
 <script lang="ts">
 
-import PokeCard from './myteamcard.vue'
+import PokeCard from './Myteamcard.vue'
 
 export default {
   components:{
