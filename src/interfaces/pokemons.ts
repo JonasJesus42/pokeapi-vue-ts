@@ -1,13 +1,15 @@
-interface Pokemons{
-    id?: number;
-    name?: string;
-    type?: string;
-    image?: string;
-    myTeam: pokemonsObjeto;
-    types: [];
-    sprites: string
+export interface Pokemons{
+    id: number;
+    name: string;
+    type: string;
+    image: string;
+    types: Array<object>;
+    sprites: Sprite
 }
 
-export type pokemonsObjeto = object | Pokemons;
-
-export default Pokemons
+interface Sprite {
+    back_default: string;
+    back_shiny: string;
+    front_default: string;
+    front_shiny: string;
+}

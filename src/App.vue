@@ -1,9 +1,23 @@
 <template>
   <Navbar />
+  <router-view />
 </template>
 
 <script lang="ts" setup>
-import Navbar from './Navbar.vue'
+import { onBeforeMount } from 'vue'
+import { allPokemon, pokeList } from '@/services/metods.ts'
+import store from '@/store'
+import Navbar from '@/components/Navbar.vue'
+
+function test(){
+  console.log(store.state.pokemons)
+}
+
+onBeforeMount(async () => {
+  let pokemons = await pokeList()
+  console.log(pokemons)
+  store.state.pokemons.push(...pokemons)
+})
 
 </script>
 
@@ -20,8 +34,9 @@ body {
   padding: 0;
   box-sizing: border-box;
 }
+
 /* start cads */
-.componente {
+/* .componente {
   margin: auto;
   text-align: center;
   box-sizing: border-box;
@@ -92,7 +107,7 @@ body {
   font-size: 1.5rem;
   text-shadow: 0.01em 0.01em 0.08em rgb(14, 14, 14)
 }
-
+ */
 /* end cards */
 
 

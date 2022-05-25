@@ -1,30 +1,41 @@
 <template>
-    <section  :class='type + " componente mb"'>
-        <section @click="pegeAboutPokemon(id)" class="cursor-pointer">
-            <img :src="`${image}`" class="image">
+    <section class="componente mb">
+        <section class="cursor-pointer">
+            <img :src="`${pokemon.image}`" class="image">
         </section>
         <section>
-            <h2 className="name">{{ name }}</h2>
-            <h3> Type: {{ type }}</h3>
+            <h2 className="name"> name:{{pokemon.name}}</h2>
         </section>
-        <button v-on:click="addPokemonInTeam(id)" class="btn-change-name">ESCOLHER</button>
+        <button class="btn-change-name" @click="handClickChoicPokemon(props.id)">ESCOLHER</button>
     </section>
 </template>
 
-<script lang="ts">
+<script lang="ts" setup>
 import store from "../store"
 import router from "@/router"
-export default {
+import { reactive, ref } from 'vue'
+
+const props = defineProps(['id','pokemon'])
+
+const pokemon = {
+    name: props.pokemon.name,
+    id: props.id,
+    image: `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${props.id+1}.png`
+}
+
+function handClickChoicPokemon(id: number){
+    if (store.state.myTeam.length <= 5) {
+       store.commit('addPokemonInMyTeam', id)
+        console.log('pokemon adicionado no time')
+    } else {
+        console.log('limite de pokemon no time atingido')
+        return
+    } 
+}
+
+/* export default {
     props: {
         id: Number,
-        name: String,
-        image: String,
-        type: String,
-        class: String,
-        /* 
-         attack1: String,
-         attack2: String,
-         attack3: String, */
     },
     methods: {
         addPokemonInTeam(idParamiter: number) {
@@ -40,8 +51,8 @@ export default {
            router.push({ path: `/pokemon/${id-1}` })
         }
     },
-    created() { }
-}
+    created() { } 
+}*/
 </script>
 
 <style scoped>

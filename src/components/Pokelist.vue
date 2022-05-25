@@ -1,22 +1,26 @@
 <template>
     <section className="container">
-        <Card v-for="pokemom in store.state.pokemons" :class='pokemom.type + " card"' :id='pokemom.id'
-            :name="pokemom.name" :image='pokemom.image' :type='pokemom.type' />
+        <Card v-for="(pokemon, i) in store.state.pokemons"
+           :id="i"
+           :pokemon="pokemon"
+        />
     </section>
 </template>
 
-<script lang="ts">
+<script lang="ts" setup>
 import store from '../store';
 import Card from './Card.vue';
 
-export default {
+
+
+/* export default {
     data() {
         return { store }
     },
     components: {
         Card
     },
-}
+} */
 </script>
 
 <style scoped>

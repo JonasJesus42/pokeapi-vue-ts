@@ -11,13 +11,3 @@ export const pokeList = async () => {
     }
     return arrayPokemons
 }
-
-
-export const allPokemon = async () => {
-    const pokeArray = []
-    for (let i = 1; i <= 150; i++) {
-        const objectPokemon = await axios.onlyPokemon(i)
-        pokeArray.push(objectPokemon.data)
-    }
-    return pokeArray
-  }
