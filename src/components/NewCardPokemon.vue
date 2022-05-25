@@ -21,7 +21,6 @@
 </template>
 
 <script lang="ts">
-import Pokemons from "../interfaces/pokemons"
 import store from "../store"
 
 export default {
