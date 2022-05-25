@@ -10,24 +10,14 @@
     </div>
 </template>
 
-<script lang="ts">
-import store from "../store"
+<script lang="ts" setup>
+import { Pokemons } from '@/interfaces/pokemons';
 
-export default {
-    data() {
-        return {
-            store,
-        }
-    },
-    methods: {
-        btnNewName(index: number, name: string) {
-            let nameEndIndex = {
-                index: index,
-                name: name
-            }
-            store.commit('setNamePokemon', nameEndIndex)
-        },
-    }
+const props = defineProps<{pokemon: Pokemons }>()
+const pokemon = {
+    name: props.pokemon.name,
+    id: props.pokemon.id,
+    image: props.pokemon.image
 }
 </script>
 
