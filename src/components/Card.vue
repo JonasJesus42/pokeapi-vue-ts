@@ -15,10 +15,11 @@
 </template>
 
 <script lang="ts" setup>
-import store from "../store"
+import {useStore} from "vuex"
 import router from "@/router"
 import { reactive, ref } from 'vue'
 
+const store = useStore()
 const props = defineProps(['id','pokemon'])
 const trueId = props.id +1
 
