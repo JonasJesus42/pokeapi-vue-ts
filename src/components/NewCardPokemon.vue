@@ -8,49 +8,27 @@
             <img :src="`${pokemon.image}`" alt="">
         </div>
         <div class="btn-area">
-            <button @click="handleClickChoicPokemon(pokemon)">Choice</button>
-            <button @click="hendleRedirectPageFromDetails(pokemon.id)">details</button>
+            <input class="input-change-name" v-model="pokemon.name" placeholder="New Name">
+            <button class="btn-change-name">Save</button>
         </div>
     </div>
-<!--     <section v-for="(pokemon, index) in store.state.myTeam" :class='pokemon.type + " componente mb"'>
-        <section class="s-btn-x">
-            <button @click="store.commit('remuvePokemon', index)" class="btn-x">X</button>
-        </section>
-        <section class="image-area">
-            <img :src="`${pokemon.image}`" class="image">
-        </section>
-        <section class="infos">
-            <h2>{{ pokemon.name }}</h2>
-            <h3>Tipo: {{ pokemon.type }}</h3>
-            <h3>Ataque: Aqua Tail </h3>
-            <h3>Ataque: Water Pulse </h3>
-            <h3>Ataque: Return Purified </h3>
-        </section>
-        <section class="btns">
-            <input class="input-change-name" v-model="pokemon.value" placeholder="New Name">
-            <button class="btn-change-name" @click="btnNewName(index, pokemon.value)">Save</button>
-        </section>
-    </section> -->
 </template>
 
-<script lang="ts">
-import store from "../store"
+<script lang="ts" setup>
+import { Pokemons } from "@/interfaces/pokemons"
+import { reactive } from "vue";
 
-export default {
-    data() {
-        return {
-            store,
-        }
-    },
-    methods: {
-        btnNewName(index: number, name: string) {
-            let nameEndIndex = {
-                index: index,
-                name: name
-            }
-            store.commit('setNamePokemon', nameEndIndex)
-        },
+const props = defineProps<{
+    pokemon: Pokemons
+}>()
+const pokemon = reactive(props.pokemon)
+
+function btnNewName(index: number, name: string) {
+/*     let nameEndIndex = {
+        index: index,
+        name: name
     }
+    store.commit('setNamePokemon', nameEndIndex) */
 }
 </script>
 
@@ -60,25 +38,26 @@ export default {
 .card {
     width: 200px;
     background-color: #f5876e;
-    margin: auto auto 10px auto;
     text-align: center;
-    box-sizing: border-box;
     border-radius: 20px;
-
     box-shadow: 0 0px 10px rgba(0, 0, 0, 0.4);
     justify-content: center;
     align-items: center;
+    margin: 20px;
 }
+
 img {
     width: 100%;
     height: 100%;
 }
+
 .name {
     font-size: 1rem;
     font-family: 'Lato', sans-serif;
     text-transform: capitalize;
     color: #ffffff;
 }
+
 .area-image {
     background: url(../assets/Pokeball.png);
     background-repeat: no-repeat;
@@ -88,14 +67,17 @@ img {
     height: 100px;
     margin: auto;
 }
+
 .cursor-pointer {
     cursor: pointer;
 }
+
 .data {
     display: flex;
     justify-content: space-around;
     margin-top: 15px;
 }
+
 .btn-area {
     display: flex;
     background-color: #ffffff;
@@ -104,6 +86,7 @@ img {
     justify-content: space-between;
     margin-top: 5px;
 }
+
 button {
     width: 60px;
     height: 30px;
@@ -114,6 +97,7 @@ button {
     cursor: pointer;
     font-size: .9rem;
 }
+
 button:hover {
     background-color: #425e28;
 }
