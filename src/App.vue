@@ -9,10 +9,6 @@ import { allPokemon, pokeList } from '@/services/metods.ts'
 import store from '@/store'
 import Navbar from '@/components/Navbar.vue'
 
-function test(){
-  console.log(store.state.pokemons)
-}
-
 onBeforeMount(async () => {
   let pokemons = await pokeList()
   console.log(pokemons)
@@ -34,93 +30,6 @@ body {
   padding: 0;
   box-sizing: border-box;
 }
-
-/* start cads */
-/* .componente {
-  margin: auto;
-  text-align: center;
-  box-sizing: border-box;
-  border-radius: 20px;
-  width: 100%;
-  height: 100%;
-
-  border: 1px solid burlywood;
-  justify-content: center;
-}
-
-.s-btn-x {
-  display: flex;
-  justify-content: end;
-  margin: 10px 10px 0 0;
-}
-
-.btn-x {
-  background-color: red;
-  border: none;
-  border-radius: 100%;
-  width: 20px;
-  height: 20px;
-  color: #DEF3FD;
-}
-
-.image-area {
-  width: 100%;
-  height: 140px;
-}
-
-.image {
-  width: 100%;
-  height: 100%;
-}
-
-.btns {
-  margin-bottom: 10px;
-  box-sizing: border-box;
-}
-
-.infos {
-  width: 100%;
-  height: 200px;
-  margin-top: 40px;
-}
-
-.btn-change-name,
-.btn-x {
-  cursor: pointer;
-}
-
-.input-change-name,
-.btn-change-name {
-  background-color: blanchedalmond;
-  border: 1px solid #97b3e6;
-  border-radius: 5px;
-  margin-top: 5px;
-  height: 90%;
-  width: 90%;
-}
-
-.name {
-  text-transform: capitalize;
-  font-weight: 600;
-  font-family: 'Roboto', sans-serif;
-  color: rgb(250, 71, 71);
-  font-size: 1.5rem;
-  text-shadow: 0.01em 0.01em 0.08em rgb(14, 14, 14)
-}
- */
-/* end cards */
-
-
-.title {
-  display: flex;
-  justify-content: center;
-  font-family: monospace;
-  font-size: 1.5rem;
-  color: rgb(244, 247, 250);
-  margin: 0 0 5px 0;
-  text-shadow: 0.01em 0.01em 0.08em rgb(14, 14, 14)
-}
-
 .steel {
   background-color: #f4f4f4;
 }
