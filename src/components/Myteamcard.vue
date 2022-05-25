@@ -22,13 +22,43 @@ const pokemon = {
 </script>
 
 <style scoped>
-.max {
-    max-width: 220px;
-    max-width: 190px;
+.card {
+    width: 150px;
+    height: 150px;
+    max-width: 200px;
+    max-height: 150px;
+    background-color: #76AADB;
+    margin: 10px;
+    text-align: center;
+    box-sizing: border-box;
+    border-radius: 20px;
+    box-shadow: 0 0px 10px rgba(0, 0, 0, 0.4);
+    justify-content: center;
+    align-items: center;
+}
+img {
+    width: 100%;
+    height: 100%;
+}
+.name {
+    font-size: 1rem;
+    font-family: 'Lato', sans-serif;
+    text-transform: capitalize;
+    color: #ffffff;
 }
 
-.image-area {
-    width: 100%;
-    height: 140px;
+.area-image {
+    background: url(../assets/Pokeball.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    width: 100px;
+    height: 100px;
+    margin: auto;
+}
+.data {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 15px;
 }
 </style>
