@@ -8,8 +8,8 @@
                 <img :src="`${pokemon.image}`" alt="">
             </div>
         <div class="btn-area">
-            <button >Choice</button>
-            <button >details</button>
+            <button @click="handClickChoicPokemon(pokemon)">Choice</button>
+            <button @click="hendleRedirectPageFromDetails(pokemon.id)">details</button>
         </div>
     </div>
 </template>
@@ -30,11 +30,10 @@ const pokemon = {
 function handClickChoicPokemon(id: number){
     if (store.state.myTeam.length <= 5) {
        store.commit('addPokemonInMyTeam', id)
-        console.log('pokemon adicionado no time')
-    } else {
-        console.log('limite de pokemon no time atingido')
-        return
     } 
+}
+function hendleRedirectPageFromDetails(id: Number){
+    router.push({ path: `/pokemon/${id}` })
 }
 </script>
 
