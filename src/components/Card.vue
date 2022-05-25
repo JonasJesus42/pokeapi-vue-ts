@@ -1,13 +1,15 @@
 <template>
-    <section class="componente mb">
-        <section class="cursor-pointer">
-            <img :src="`${pokemon.image}`" class="image">
-        </section>
-        <section>
-            <h2 className="name"> name:{{pokemon.name}}</h2>
-        </section>
-        <button class="btn-change-name" @click="handClickChoicPokemon(props.id)">ESCOLHER</button>
-    </section>
+    <div >
+        <div>
+            <h1>{{ pokemon.name }}</h1>
+                <h1 >#{{ pokemon.id }}</h1>
+            </div>
+            <div >
+                <img :src="`${pokemon.image}`" alt="">
+            </div>
+        <div >
+        </div>
+    </div>
 </template>
 
 <script lang="ts" setup>
