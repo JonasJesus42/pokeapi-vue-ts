@@ -23,10 +23,7 @@ export default {
       <MyTeam />
     </section>
 
-    <section class="list bg-bd-color">
-       <div class="title">
-         <h2 >Select you Pokemon for you team!</h2>
-       </div>
+    <section class="list ">
       <Pokelist />
     </section>
   </div>
@@ -48,7 +45,6 @@ export default {
 }
 
 .list {
-  border: 1px solid #42b983;
   min-height: 600px;
   margin: 20px;
 }
