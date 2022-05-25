@@ -33,9 +33,9 @@ const pokemon = {
     image: `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${trueId}.png`
 }
 
-function handClickChoicPokemon(id: number){
+function handClickChoicPokemon(objPokemon: Pokemons){
     if (store.state.myTeam.length <= 5) {
-       store.commit('addPokemonInMyTeam', id)
+       store.commit('addPokemonInMyTeam', objPokemon)
     } 
 }
 function hendleRedirectPageFromDetails(id: Number){
