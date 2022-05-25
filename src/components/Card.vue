@@ -20,11 +20,12 @@ import router from "@/router"
 import { reactive, ref } from 'vue'
 
 const props = defineProps(['id','pokemon'])
+const trueId = props.id +1
 
 const pokemon = {
     name: props.pokemon.name,
-    id: props.id,
-    image: `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${props.id+1}.png`
+    id:trueId,
+    image: `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${trueId}.png`
 }
 
 function handClickChoicPokemon(id: number){
