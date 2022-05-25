@@ -32,27 +32,6 @@ function handClickChoicPokemon(id: number){
         return
     } 
 }
-
-/* export default {
-    props: {
-        id: Number,
-    },
-    methods: {
-        addPokemonInTeam(idParamiter: number) {
-            if (store.state.myTeam.length <= 5) {
-               store.commit('addPokemonInMyTeam', idParamiter)
-                console.log('pokemon adicionado no time')
-            } else {
-                console.log('limite de pokemon no time atingido')
-                return
-            } 
-        },
-        pegeAboutPokemon(id: number){
-           router.push({ path: `/pokemon/${id-1}` })
-        }
-    },
-    created() { } 
-}*/
 </script>
 
 <style scoped>
