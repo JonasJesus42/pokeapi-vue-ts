@@ -17,7 +17,7 @@ data(){
 
 <template>
   <div>
-    <section class="my-team bg-bd-color center ">
+    <section class="my-team center ">
       <div class="header-myteam">
         <h2>You Team</h2>
       </div>
@@ -25,15 +25,16 @@ data(){
         <Myteamcard v-for="pokemon in store.state.myTeam" :pokemon="pokemon" />
       </div>
     </section>
-
-
     <section class="list ">
-      <Pokelist />
+        <Pokelist />
     </section>
   </div>
 </template>
 
 <style scoped>
+.overflow{
+  overflow: scroll;
+}
 .containe{
   display: flex;
   box-sizing: border-box;
@@ -45,9 +46,8 @@ data(){
   justify-content: center;
 }
 .list {
-
   min-height: 600px;
-  margin: 20px;
+  margin: 15px;
 }
 .header-myteam{ 
   background-color: #ffff;
@@ -68,7 +68,6 @@ data(){
   border-radius: 20px;
   box-shadow: 0 0px 10px rgba(0, 0, 0, 0.5);
 }
-.bg-bd-color 
 .area {
   height: 200px;
 }

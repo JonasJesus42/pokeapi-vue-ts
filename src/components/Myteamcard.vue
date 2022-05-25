@@ -35,7 +35,6 @@ const pokemon = {
     box-shadow: 0 0px 10px rgba(0, 0, 0, 0.4);
     justify-content: center;
     align-items: center;
-    overflow: scroll;
 }
 img {
     width: 100%;
