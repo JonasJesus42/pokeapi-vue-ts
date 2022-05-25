@@ -5,13 +5,12 @@
 
 <script lang="ts" setup>
 import { onBeforeMount } from 'vue'
-import { allPokemon, pokeList } from '@/services/metods.ts'
+import { pokeList } from '@/services/metods'
 import store from '@/store'
 import Navbar from '@/components/Navbar.vue'
 
 onBeforeMount(async () => {
   let pokemons = await pokeList()
-  console.log(pokemons)
   store.state.pokemons.push(...pokemons)
 })
 
