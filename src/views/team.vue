@@ -33,6 +33,7 @@ import NewCardPokemon from "../components/NewCardPokemon.vue";
   color: #FFFA77;
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.4);
   text-shadow: 0 0px 5px rgba(0, 0, 0, 0.7);
+  flex-wrap: wrap;
 }
 .containe{
   display: flex;
