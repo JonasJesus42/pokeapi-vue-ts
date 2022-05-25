@@ -1,19 +1,13 @@
 <template>
-    <section v-for="(pokemon, index) in store.state.myTeam" :class='pokemon.type + " componente max"'>
-        <section class="s-btn-x">
-            <button @click="store.commit('remuvePokemon', index)" class="btn-x">X</button>
-        </section>
-        <section class="image-area">
-            <img :src="`${pokemon.image}`" class="image">
-        </section>
-        <h3 className="name">{{ pokemon.name }}</h3>
-        <h3 className="name">{{ pokemon.id }}</h3>
-        <section class="btns">
-            <input class="input-change-name" v-model="pokemon.value" placeholder="New Name">
-            <button class="btn-change-name" @click="btnNewName(index, pokemon.value)">Save</button>
-        </section>
-    </section>
-
+    <div class="card mb">
+        <div class="data">
+            <h1 class="name">{{ pokemon.name }}</h1>
+            <h1>#{{ pokemon.id }}</h1>
+        </div>
+        <div class="area-image">
+            <img :src="`${pokemon.image}`" alt="">
+        </div>
+    </div>
 </template>
 
 <script lang="ts">
