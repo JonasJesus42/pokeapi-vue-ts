@@ -12,7 +12,6 @@
 
 <style scoped>
 #nav {
-  width: 97.4vw;
   height: 75px;
   background-color: #303030;
   display: flex;
@@ -32,7 +31,11 @@
 }
 
 #nav img {
-  width: 50%;
+  width: 100%;
   height: 100%;
+}
+.img-area{
+  width: 50px;
+  height: 50px;
 }
 </style>
