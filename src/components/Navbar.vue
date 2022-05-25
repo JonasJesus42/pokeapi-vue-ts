@@ -1,7 +1,7 @@
 <template>
   <div id="nav">
     <div class="img-area">
-      <img src="./assets/logo.png" alt="Logo">
+      <img src="../assets/Pokeball.png" alt="Logo">
     </div>
     <div>
       <router-link to="/" class="link">Home</router-link>
