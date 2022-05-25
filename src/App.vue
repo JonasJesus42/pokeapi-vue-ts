@@ -12,7 +12,9 @@ import store from './store'
 
 onBeforeMount(async () => {
   let pokemons = await pokeList()
-  store.state.pokemons.push(...pokemons)
+  if(store.state.pokemons.length <= 150){
+    store.state.pokemons.push(...pokemons)
+  }
 })
 </script>
 
