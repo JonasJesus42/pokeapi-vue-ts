@@ -18,10 +18,14 @@
 import {useStore} from "vuex"
 import router from "@/router"
 import { reactive, ref } from 'vue'
+import { Pokemons } from "@/interfaces/pokemons";
 
 const store = useStore()
-const props = defineProps(['id','pokemon'])
-const trueId = props.id +1
+const props = defineProps<{
+    id: number,
+    pokemon: Pokemons
+}>()
+const trueId = props.id + 1
 
 const pokemon = {
     name: props.pokemon.name,
