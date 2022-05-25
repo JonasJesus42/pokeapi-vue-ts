@@ -1,5 +1,18 @@
 <template>
-    <section v-for="(pokemon, index) in store.state.myTeam" :class='pokemon.type + " componente mb"'>
+    <div class="card mb">
+        <div class="data">
+            <h1 class="name">{{ pokemon.name }}</h1>
+            <h1 class="name">#{{ pokemon.id }}</h1>
+        </div>
+        <div class="area-image">
+            <img :src="`${pokemon.image}`" alt="">
+        </div>
+        <div class="btn-area">
+            <button @click="handleClickChoicPokemon(pokemon)">Choice</button>
+            <button @click="hendleRedirectPageFromDetails(pokemon.id)">details</button>
+        </div>
+    </div>
+<!--     <section v-for="(pokemon, index) in store.state.myTeam" :class='pokemon.type + " componente mb"'>
         <section class="s-btn-x">
             <button @click="store.commit('remuvePokemon', index)" class="btn-x">X</button>
         </section>
@@ -17,7 +30,7 @@
             <input class="input-change-name" v-model="pokemon.value" placeholder="New Name">
             <button class="btn-change-name" @click="btnNewName(index, pokemon.value)">Save</button>
         </section>
-    </section>
+    </section> -->
 </template>
 
 <script lang="ts">
@@ -42,40 +55,66 @@ export default {
 </script>
 
 <style scoped>
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;1,100&display=swap');
 
+.card {
+    width: 200px;
+    background-color: #f5876e;
+    margin: auto auto 10px auto;
+    text-align: center;
+    box-sizing: border-box;
+    border-radius: 20px;
 
-.image {
+    box-shadow: 0 0px 10px rgba(0, 0, 0, 0.4);
+    justify-content: center;
+    align-items: center;
+}
+img {
     width: 100%;
     height: 100%;
 }
-
-h2 {
-    font-family: 'Roboto', sans-serif;
-    color: rgb(250, 137, 71);
-    font-size: 1.5rem;
-    text-shadow: 0.01em 0.01em 0.08em rgb(14, 14, 14)
+.name {
+    font-size: 1rem;
+    font-family: 'Lato', sans-serif;
+    text-transform: capitalize;
+    color: #ffffff;
 }
-
-h2 {
-    margin: 5px;
+.area-image {
+    background: url(../assets/Pokeball.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    width: 100px;
+    height: 100px;
+    margin: auto;
 }
-
-h3 {
-    color: rgb(65, 65, 65);
-    margin-bottom: 10px;
+.cursor-pointer {
+    cursor: pointer;
 }
-
-h2,
-h3 {
-    font-family: monospace;
+.data {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 15px;
 }
-.mb{
-    margin: 0 10px;
-    width: 300px;
+.btn-area {
+    display: flex;
+    background-color: #ffffff;
+    border-radius: 0px 0px 20px 20px;
+    padding: 10px;
+    justify-content: space-between;
+    margin-top: 5px;
 }
-.infos {
-    width: 100%;
-    height: 200px;
-    margin-top: 40px;
+button {
+    width: 60px;
+    height: 30px;
+    border-radius: 10px;
+    background-color: #70A83B;
+    border-style: none;
+    color: aliceblue;
+    cursor: pointer;
+    font-size: .9rem;
+}
+button:hover {
+    background-color: #425e28;
 }
 </style>
