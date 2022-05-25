@@ -2,7 +2,7 @@
     <div class="card mb">
         <div class="data">
             <h1 class="name">{{ pokemon.name }}</h1>
-            <h1>#{{ pokemon.id }}</h1>
+            <h1 class="name">#{{ pokemon.id }}</h1>
         </div>
         <div class="area-image">
             <img :src="`${pokemon.image}`" alt="">
