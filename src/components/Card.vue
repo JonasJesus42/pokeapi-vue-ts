@@ -2,11 +2,11 @@
     <div class="card mb">
         <div class="data">
             <h1 class="name">{{ pokemon.name }}</h1>
-                <h1 class="name">#{{ pokemon.id }}</h1>
-            </div>
-            <div class="area-image">
-                <img :src="`${pokemon.image}`" alt="">
-            </div>
+            <h1 class="name">#{{ pokemon.id }}</h1>
+        </div>
+        <div class="area-image">
+            <img :src="`${pokemon.image}`" alt="">
+        </div>
         <div class="btn-area">
             <button @click="handleClickChoicPokemon(pokemon)">Choice</button>
             <button @click="hendleRedirectPageFromDetails(pokemon.id)">details</button>
@@ -15,11 +15,11 @@
 </template>
 
 <script lang="ts" setup>
-import {useStore} from "vuex"
+import store from "@/store";
 import router from "@/router"
 import { Pokemons } from "@/interfaces/pokemons";
 
-const store = useStore()
+
 const props = defineProps<{
     id: number,
     pokemon: Pokemons
@@ -29,15 +29,16 @@ const trueId = props.id + 1
 const pokemon = {
     name: props.pokemon.name,
     id: trueId,
-    image: `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${trueId}.png`
+    image: `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${trueId}.png`,
+    indice: props.id
 }
 
-function handleClickChoicPokemon(objPokemon: Pokemons){
+function handleClickChoicPokemon(objPokemon: Pokemons) {
     if (store.state.myTeam.length <= 5) {
-       store.commit('addPokemonInMyTeam', objPokemon)
-    } 
+        store.commit('addPokemonInMyTeam', objPokemon)
+    }
 }
-function hendleRedirectPageFromDetails(id: Number){
+function hendleRedirectPageFromDetails(id: Number) {
     router.push({ path: `/pokemon/${id}` })
 }
 </script>
@@ -53,9 +54,9 @@ function hendleRedirectPageFromDetails(id: Number){
     box-sizing: border-box;
     border-radius: 20px;
 
-  box-shadow: 0 0px 10px rgba(0, 0, 0, 0.4);
-  justify-content: center;
-  align-items: center;
+    box-shadow: 0 0px 10px rgba(0, 0, 0, 0.4);
+    justify-content: center;
+    align-items: center;
 }
 
 img {
@@ -93,24 +94,24 @@ img {
 .btn-area {
     display: flex;
     background-color: #ffffff;
-    border-radius:0px 0px 20px 20px;
+    border-radius: 0px 0px 20px 20px;
     padding: 10px;
     justify-content: space-between;
     margin-top: 5px;
 }
 
-button{
+button {
     width: 60px;
     height: 30px;
     border-radius: 10px;
-    background-color:#70A83B;
+    background-color: #70A83B;
     border-style: none;
     color: aliceblue;
     cursor: pointer;
     font-size: .9rem;
 }
 
-button:hover{
+button:hover {
     background-color: #425e28;
 }
 </style>

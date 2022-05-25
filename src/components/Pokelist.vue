@@ -8,19 +8,10 @@
 </template>
 
 <script lang="ts" setup>
-import store from '../store';
+import store from '@/store';
 import Card from './Card.vue';
 
 
-
-/* export default {
-    data() {
-        return { store }
-    },
-    components: {
-        Card
-    },
-} */
 </script>
 
 <style scoped>

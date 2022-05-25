@@ -1,10 +1,11 @@
 export interface Pokemons{
-    id: number;
-    name: string;
-    type: string;
-    image: string;
-    types: Array<object>;
-    sprites: Sprite
+    id?: number;
+    name?: string;
+    type?: string;
+    image?: string;
+    types?: Array<object>;
+    sprites?: Sprite
+    url?: string
 }
 
 interface Sprite {

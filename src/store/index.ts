@@ -1,3 +1,4 @@
+import { Pokemons } from "@/interfaces/pokemons"
 import Vuex from "vuex"
 import VuexPersistence from "vuex-persist"
 
@@ -18,11 +19,10 @@ const store = new Vuex.Store<State>({
     mutations: {
         /* criar as gets e sets*/
         addInPokemons(state, objectPokemon) {
-            state.pokemons.push(objectPokemon)
+            state.pokemons.push({...objectPokemon})
         },
-        addPokemonInMyTeam(state, id) {
-            const poke = store.state.pokemons[id - 1]
-            state.myTeam.push({ ...poke })
+        addPokemonInMyTeam(state, objPokemon: Pokemons) {
+            state.myTeam.push(objPokemon)
         },
         remuvePokemon(state, id) {
             state.myTeam.splice(id, 1)
