@@ -8,7 +8,7 @@
                 <img :src="`${pokemon.image}`" alt="">
             </div>
         <div class="btn-area">
-            <button @click="handClickChoicPokemon(pokemon)">Choice</button>
+            <button @click="handleClickChoicPokemon(pokemon)">Choice</button>
             <button @click="hendleRedirectPageFromDetails(pokemon.id)">details</button>
         </div>
     </div>
@@ -17,7 +17,6 @@
 <script lang="ts" setup>
 import {useStore} from "vuex"
 import router from "@/router"
-import { reactive, ref } from 'vue'
 import { Pokemons } from "@/interfaces/pokemons";
 
 const store = useStore()
@@ -29,11 +28,11 @@ const trueId = props.id + 1
 
 const pokemon = {
     name: props.pokemon.name,
-    id:trueId,
+    id: trueId,
     image: `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${trueId}.png`
 }
 
-function handClickChoicPokemon(objPokemon: Pokemons){
+function handleClickChoicPokemon(objPokemon: Pokemons){
     if (store.state.myTeam.length <= 5) {
        store.commit('addPokemonInMyTeam', objPokemon)
     } 
