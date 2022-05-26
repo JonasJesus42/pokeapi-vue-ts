@@ -3,9 +3,10 @@ export interface Pokemons{
     name?: string;
     type?: string;
     image?: string;
-    types?: Array<object>;
-    sprites?: Sprite
-    url?: string
+    types?: object;
+    sprites?: Sprite;
+    url?: string;
+    index?: number
 }
 
 interface Sprite {

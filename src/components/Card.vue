@@ -1,5 +1,5 @@
 <template>
-    <div class="card mb">
+    <div :class="`card mb ${pokemon.types}`">
         <div class="data">
             <h1 class="name">{{ pokemon.name }}</h1>
             <h1 class="name">#{{ pokemon.id }}</h1>
@@ -18,20 +18,25 @@
 import store from "@/store";
 import router from "@/router"
 import { Pokemons } from "@/interfaces/pokemons";
-
+import { reactive } from "vue";
 
 const props = defineProps<{
     id: number,
-    pokemon: Pokemons
+    pokemons: Pokemons
 }>()
 const trueId = props.id + 1
 
-const pokemon = {
-    name: props.pokemon.name,
+const typeAtual: Array<object> = []
+typeAtual.push(store.state.types.filter((types, index) => index === trueId))
+
+const pokemon:Pokemons = reactive({
+    name: props.pokemons.name,
     id: trueId,
     image: `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${trueId}.png`,
-    indice: props.id
-}
+    indice: props.id,
+    url: props.pokemons.url,
+    types: typeAtual
+})
 
 function handleClickChoicPokemon(objPokemon: Pokemons) {
     if (store.state.myTeam.length <= 5) {
@@ -41,6 +46,7 @@ function handleClickChoicPokemon(objPokemon: Pokemons) {
 function hendleRedirectPageFromDetails(id: Number) {
     router.push({ path: `/pokemon/${id}` })
 }
+
 </script>
 
 <style scoped>
@@ -48,7 +54,6 @@ function hendleRedirectPageFromDetails(id: Number) {
 
 .card {
     width: 200px;
-    background-color: #f5876e;
     margin: auto auto 10px auto;
     text-align: center;
     box-sizing: border-box;

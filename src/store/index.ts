@@ -4,7 +4,8 @@ import VuexPersistence from "vuex-persist"
 
 interface State {
     pokemons: object[],
-    myTeam: object[]
+    myTeam: object[],
+    types: object[]
 }
 
 const vuexLocal = new VuexPersistence({
@@ -15,6 +16,7 @@ const store = new Vuex.Store<State>({
     state: {
         pokemons: [],
         myTeam: [],
+        types: [],
     },
     mutations: {
         /* criar as gets e sets*/

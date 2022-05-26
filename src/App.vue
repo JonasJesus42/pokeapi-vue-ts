@@ -5,15 +5,23 @@
 
 <script lang="ts" setup>
 import { onBeforeMount } from 'vue'
-import { pokeList } from '@/services/metods'
+import { pokeList, typePokemon } from '@/services/metods'
 
 import Navbar from '@/components/Navbar.vue'
 import store from './store'
 
+async function  loadTypes(){
+  for(let i =1; i <= 150; i++){
+    let types = await typePokemon(i)
+    store.state.types.push(types[0])
+  }
+}
+
 onBeforeMount(async () => {
-  let pokemons = await pokeList()
+    let pokemons = await pokeList()
   if(store.state.pokemons.length <= 150){
     store.state.pokemons.push(...pokemons)
+    loadTypes()
   }
 })
 </script>
@@ -36,11 +44,12 @@ body {
 }
 
 .fire {
-  background-color: #FDDFDF;
+  background-color:#F76545;
+;
 }
 
 .grass {
-  background-color: #DEFDE0;
+  background-color: #70A83B;
 }
 
 .electric {

@@ -7,6 +7,12 @@
         <div class="area-image">
             <img :src="`${pokemon.image}`" alt="">
         </div>
+        <div class="datas">
+            <p>attack</p>
+            <p>attack</p>
+        <p>{{pokemon.type}}</p>
+            <p>{{pokemon.types}}</p>
+        </div>
         <div class="btn-area">
             <input class="input-change-name" v-model="pokemon.name" placeholder="New Name">
             <button class="btn-change-name">Save</button>
