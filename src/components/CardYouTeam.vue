@@ -14,7 +14,7 @@
 import { Pokemons } from '@/interfaces/pokemons';
 
 const props = defineProps<{ pokemon: Pokemons }>()
-const [typeOne] = props.pokemon.types.map((typeInfos) => typeInfos.type.name)
+const [typeOne] = props.pokemon.types.map((typeInfo) => typeInfo.type.name)
 </script>
 
 <style scoped>

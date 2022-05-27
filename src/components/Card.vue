@@ -9,7 +9,7 @@
                 :src="`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/${id}.svg`">
         </div>
         <div class="btn-area d-flax">
-            <button class="btn-choice" @click="handleClickChoic(objPokemon)">Choice</button>
+            <button class="btn-choice" @click="handleClickChoic(store.state.detalesPokemon[props.index])">Choice</button>
             <button class="btn-details" @click="hendleRedirect(id)">details</button>
         </div>
     </div>
@@ -25,9 +25,8 @@ const props = defineProps<{
     obj: Pokemon
 }>()
 const id = props.index + 1
-const objPokemon = store.state.detalesPokemon[props.index]
 
-function handleClickChoic(objPokemon: Pokemon) {
+function handleClickChoic(objPokemon: any) {
     if (storeMyteam.state.myTeam.length <= 5) {
         storeMyteam.commit('addPokemonInMyTeam', objPokemon)
     }
