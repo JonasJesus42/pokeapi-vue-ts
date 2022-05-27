@@ -18,16 +18,16 @@
 <script lang="ts" setup>
 import { storeMyteam, store } from "@/store";
 import router from "@/router"
-import { Pokemons } from "@/interfaces/pokemons";
+import { Pokemon } from "@/interfaces/pokemons";
 
 const props = defineProps<{
     index: number,
-    obj: Pokemons
+    obj: Pokemon
 }>()
 const id = props.index + 1
 const objPokemon = store.state.detalesPokemon[props.index]
 
-function handleClickChoic(objPokemon: Pokemons) {
+function handleClickChoic(objPokemon: Pokemon) {
     if (storeMyteam.state.myTeam.length <= 5) {
         storeMyteam.commit('addPokemonInMyTeam', objPokemon)
     }
