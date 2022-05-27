@@ -1,6 +1,6 @@
 <template class="Card">
     <div class="card">
-        <div class="deta d-fax">
+        <div class="deta d-flax">
             <h1 class="name">{{ props.obj.name }}</h1>
             <h1 class="name">#{{ id }}</h1>
         </div>
