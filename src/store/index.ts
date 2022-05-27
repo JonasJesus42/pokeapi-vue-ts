@@ -1,4 +1,4 @@
-import { Pokemon, Pokemons } from "@/interfaces/pokemons"
+import { Pokemons } from "@/interfaces/pokemons"
 import Vuex from "vuex"
 import VuexPersistence from "vuex-persist"
 
@@ -43,4 +43,3 @@ export const store = new Vuex.Store<State>({
         },
     },
 })
-
