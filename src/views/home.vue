@@ -1,6 +1,6 @@
 <template>
   <div class="view-home">
-    <section class="my-team center j-center ">
+    <section class="my-team a-center j-center ">
       <div class="header-myteam">
         <h2>You Team</h2>
       </div>
@@ -32,13 +32,17 @@ import { storeMyteam } from '../store'
   justify-content: center;
 }
 
-.center {
+.a-center {
   align-items: center;
 }
 
-.list {
-  min-height: 600px;
-  margin: 15px;
+.my-team {
+  min-height: 200px;
+  max-height: 400px;
+  margin: 20px;
+  background-color: #FFFA77;
+  border-radius: 20px;
+  box-shadow: 0 0px 10px rgba(0, 0, 0, 0.5);
 }
 
 .header-myteam {
@@ -53,12 +57,8 @@ import { storeMyteam } from '../store'
   text-shadow: 0 0px 5px rgba(0, 0, 0, 0.7);
 }
 
-.my-team {
-  min-height: 200px;
-  max-height: 400px;
-  margin: 20px;
-  background-color: #FFFA77;
-  border-radius: 20px;
-  box-shadow: 0 0px 10px rgba(0, 0, 0, 0.5);
+.list {
+  min-height: 600px;
+  margin: 15px;
 }
 </style>
