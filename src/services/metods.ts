@@ -1,4 +1,5 @@
 import { Pokemons } from "@/interfaces/pokemons";
+import { store } from "@/store";
 import axios from "./index";
 
 export const pokeList = async () => {
@@ -12,14 +13,26 @@ export const pokeList = async () => {
     }
     return arrayPokemons
 }
-export const typePokemon = async (id:number) => {
-    let objPokemons: Array<object> = []
+export const getAllDataPokemon = async () => {
     try {
-        const response = await axios.getPokemon(id)
-        const pokemonsData = response.data.types
-        objPokemons = pokemonsData
+        let pokemonsPromesis = []
+        for (let i = 1; i <= 150; i++) {
+            pokemonsPromesis.push(axios.getPokemon(i))
+        }
+
+        let pokemonJson = await Promise.all(pokemonsPromesis)
+        let pokemonObj: Pokemons[] = pokemonJson.map((elem) => {
+            return <Pokemons>{
+                id: elem.data.id,
+                name: elem.data.name,
+                types: elem.data.types,
+                sprites: elem.data.sprites,
+                abilities: elem.data.abilities,
+                stats: elem.data.stats
+            }
+        }, {})
+        store.state.detalesPokemon.push(...pokemonObj)
     } catch (e) {
         console.error(e);
     }
-    return objPokemons
 }
