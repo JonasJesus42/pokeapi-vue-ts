@@ -3,10 +3,10 @@
     <div class="img-area">
       <img src="../assets/Pokeball.png" alt="Logo">
     </div>
-    <div>
+    <nav>
       <router-link to="/" class="link">Home</router-link>
       <router-link to="/team" class="link">Team</router-link>
-    </div>
+    </nav>
   </div>
 </template>
 
@@ -21,6 +21,16 @@
   align-items: center;
 }
 
+#nav img {
+  width: 100%;
+  height: 100%;
+}
+
+.img-area {
+  width: 50px;
+  height: 50px;
+}
+
 .link {
   list-style: none;
   text-decoration: none;
@@ -28,14 +38,5 @@
   font-family: monospace;
   font-size: 1.5rem;
   margin-left: 20px;
-}
-
-#nav img {
-  width: 100%;
-  height: 100%;
-}
-.img-area{
-  width: 50px;
-  height: 50px;
 }
 </style>
