@@ -1,36 +1,46 @@
-import { Pokemons } from "@/interfaces/pokemons"
+import { Pokemon, Pokemons } from "@/interfaces/pokemons"
 import Vuex from "vuex"
 import VuexPersistence from "vuex-persist"
 
 interface State {
-    pokemons: object[],
-    myTeam: object[],
-    types: object[]
+    pokemons: Array<object>,
+    detalesPokemon: Pokemons[]
+}
+
+interface StateMytem {
+    myTeam: Pokemons[],
 }
 
 const vuexLocal = new VuexPersistence({
     storage: window.localStorage
 })
-
-const store = new Vuex.Store<State>({
+export const storeMyteam = new Vuex.Store<StateMytem>({
     state: {
-        pokemons: [],
         myTeam: [],
-        types: [],
     },
     mutations: {
-        /* criar as gets e sets*/
-        addInPokemons(state, objectPokemon) {
-            state.pokemons.push({...objectPokemon})
-        },
         addPokemonInMyTeam(state, objPokemon: Pokemons) {
-            state.myTeam.push(objPokemon)
+            state.myTeam.push({ ...objPokemon })
         },
         remuvePokemon(state, id) {
             state.myTeam.splice(id, 1)
         },
+        setName(state, payload) {
+            state.myTeam[payload.index].name = payload.name
+        }
     },
     plugins: [vuexLocal.plugin]
 })
 
-export default store
+export const store = new Vuex.Store<State>({
+    state: {
+        pokemons: [],
+        detalesPokemon: [],
+    },
+    mutations: {
+        addInPokemons(state, objectPokemon) {
+            state.detalesPokemon.push({ ...objectPokemon })
+        },
+    },
+})
+
