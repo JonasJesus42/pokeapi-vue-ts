@@ -3,18 +3,15 @@
         <div class="header-myteam">
             <h2>You Team</h2>
         </div>
-        <div class="containe" >
-            <NewCardPokemon v-for="pokemon in store.state.myTeam" :pokemon="pokemon"/>
+        <div class="containe">
+            <CardTeam v-for="(pokemon, index) in storeMyteam.state.myTeam" :obj="pokemon" :index="index" />
         </div>
     </section>
 </template>
 
 <script lang="ts" setup>
-import NewCardPokemon from '@/components/NewCardPokemon.vue'
-import store from '@/store';
-
-
-
+import CardTeam from '@/components/CardTeam.vue';
+import { storeMyteam } from '@/store';
 </script>
 
 <style scoped>
@@ -24,6 +21,17 @@ import store from '@/store';
     background-color: #FFFA77;
     border-radius: 20px;
     box-shadow: 0 0px 10px rgba(0, 0, 0, 0.5);
+}
+
+.center {
+    align-items: center;
+    justify-content: center;
+}
+
+.containe {
+    flex-wrap: wrap;
+    display: flex;
+    justify-content: center;
 }
 
 .header-myteam {
@@ -36,16 +44,5 @@ import store from '@/store';
     color: #FFFA77;
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.4);
     text-shadow: 0 0px 5px rgba(0, 0, 0, 0.7);
-}
-
-.containe {
-    flex-wrap: wrap;
-    display: flex;
-    justify-content: center;
-}
-
-.center {
-    align-items: center;
-    justify-content: center;
 }
 </style>
