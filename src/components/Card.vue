@@ -1,57 +1,47 @@
-<template>
-    <div :class="`card mb ${pokemon.types}`">
-        <div class="data">
-            <h1 class="name">{{ pokemon.name }}</h1>
-            <h1 class="name">#{{ pokemon.id }}</h1>
+<template class="Card">
+    <div class="card">
+        <div class="deta d-fax">
+            <h1 class="name">{{ props.obj.name }}</h1>
+            <h1 class="name">#{{ id }}</h1>
         </div>
         <div class="area-image">
-            <img :src="`${pokemon.image}`" alt="">
+            <img
+                :src="`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/${id}.svg`">
         </div>
-        <div class="btn-area">
-            <button @click="handleClickChoicPokemon(pokemon)">Choice</button>
-            <button @click="hendleRedirectPageFromDetails(pokemon.id)">details</button>
+        <div class="btn-area d-flax">
+            <button class="btn-choice" @click="handleClickChoic(objPokemon)">Choice</button>
+            <button class="btn-details" @click="hendleRedirect(id)">details</button>
         </div>
     </div>
 </template>
 
 <script lang="ts" setup>
-import store from "@/store";
+import { storeMyteam, store } from "@/store";
 import router from "@/router"
 import { Pokemons } from "@/interfaces/pokemons";
-import { reactive } from "vue";
 
 const props = defineProps<{
-    id: number,
-    pokemons: Pokemons
+    index: number,
+    obj: Pokemons
 }>()
-const trueId = props.id + 1
+const id = props.index + 1
+const objPokemon = store.state.detalesPokemon[props.index]
 
-const typeAtual: Array<object> = []
-typeAtual.push(store.state.types.filter((types, index) => index === trueId))
-
-const pokemon:Pokemons = reactive({
-    name: props.pokemons.name,
-    id: trueId,
-    image: `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${trueId}.png`,
-    indice: props.id,
-    url: props.pokemons.url,
-    types: typeAtual
-})
-
-function handleClickChoicPokemon(objPokemon: Pokemons) {
-    if (store.state.myTeam.length <= 5) {
-        store.commit('addPokemonInMyTeam', objPokemon)
+function handleClickChoic(objPokemon: Pokemons) {
+    if (storeMyteam.state.myTeam.length <= 5) {
+        storeMyteam.commit('addPokemonInMyTeam', objPokemon)
     }
 }
-function hendleRedirectPageFromDetails(id: Number) {
+function hendleRedirect(id: number) {
     router.push({ path: `/pokemon/${id}` })
 }
-
 </script>
 
 <style scoped>
 @import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;1,100&display=swap');
-
+.d-flax{
+    display: flex;
+}
 .card {
     width: 200px;
     margin: auto auto 10px auto;
@@ -62,11 +52,12 @@ function hendleRedirectPageFromDetails(id: Number) {
     box-shadow: 0 0px 10px rgba(0, 0, 0, 0.4);
     justify-content: center;
     align-items: center;
+    background-color: #3b77a8;
 }
 
-img {
-    width: 100%;
-    height: 100%;
+.deta {
+    justify-content: space-around;
+    margin-top: 15px;
 }
 
 .name {
@@ -86,18 +77,12 @@ img {
     margin: auto;
 }
 
-.cursor-pointer {
-    cursor: pointer;
-}
-
-.data {
-    display: flex;
-    justify-content: space-around;
-    margin-top: 15px;
+img {
+    width: 85%;
+    height: 85%;
 }
 
 .btn-area {
-    display: flex;
     background-color: #ffffff;
     border-radius: 0px 0px 20px 20px;
     padding: 10px;
@@ -105,18 +90,31 @@ img {
     margin-top: 5px;
 }
 
-button {
+.btn-details,
+.btn-choice {
     width: 60px;
     height: 30px;
     border-radius: 10px;
-    background-color: #70A83B;
     border-style: none;
     color: aliceblue;
     cursor: pointer;
     font-size: .9rem;
 }
 
-button:hover {
+.btn-choice {
+    background-color: #70A83B;
+}
+
+.btn-details {
+    background-color: #3b77a8;
+
+}
+
+.btn-choice:hover {
     background-color: #425e28;
+}
+
+.btn-details:hover {
+    background-color: #2d5a80;
 }
 </style>
