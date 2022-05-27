@@ -1,10 +1,10 @@
 <template>
-    <section class="pokelist">
+    <div class="pokelist">
         <Card v-for="(pokemon, index) in store.state.pokemons"
            :index="index"
            :obj="pokemon"
         />
-    </section>
+    </div>
 </template>
 
 <script lang="ts" setup>
