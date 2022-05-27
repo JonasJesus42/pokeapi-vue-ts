@@ -5,27 +5,38 @@
 
 <script lang="ts" setup>
 import { onBeforeMount } from 'vue'
-import { pokeList, typePokemon } from '@/services/metods'
-
+import { getAllDataPokemon, pokeList } from '@/services/metods'
 import Navbar from '@/components/Navbar.vue'
-import store from './store'
-
-async function  loadTypes(){
-  for(let i =1; i <= 150; i++){
-    let types = await typePokemon(i)
-    store.state.types.push(types[0])
-  }
-}
+import {store} from './store'
 
 onBeforeMount(async () => {
-    let pokemons = await pokeList()
-  if(store.state.pokemons.length <= 150){
-    store.state.pokemons.push(...pokemons)
-    loadTypes()
+  let pokemon = await pokeList()
+  getAllDataPokemon()
+  if (store.state.pokemons.length <= 150) {
+    store.state.pokemons.push(...pokemon)
   }
 })
-</script>
 
+const colorsPokemon = {
+  steel: '#B7B9D0',
+  fire: '#F57D31',
+  grass: '#74CB48',
+  electric: '#F9CF30',
+  water: '#6493EB',
+  ice: '#9AD6DF',
+  ground: '#DEC16B',
+  rock: '#B69E31',
+  fairy: '#E69EAC',
+  poison: '#A43E9E',
+  bug: '#A7B723',
+  dragon: '#7037FF',
+  ghost: '#70559B',
+  psychic: '#FB5584',
+  flying: '#A891EC',
+  fighting: '#C12239',
+  normal: '#AAA67F',
+}
+</script>
 <style>
 body {
   background-color: #b4d5bd;
@@ -39,69 +50,71 @@ body {
   padding: 0;
   box-sizing: border-box;
 }
+
 .steel {
-  background-color: #f4f4f4;
+  background-color: v-bind('colorsPokemon.steel');
 }
 
 .fire {
-  background-color:#F76545;
-;
+  background-color:v-bind('colorsPokemon.fire');
 }
 
 .grass {
-  background-color: #70A83B;
+  background-color: v-bind('colorsPokemon.grass');
 }
 
 .electric {
-  background-color: #FCF7DE;
+  background-color: v-bind('colorsPokemon.electric');
 }
 
-.water,
+.water{
+  background-color: v-bind('colorsPokemon.water');
+}
 .ice {
-  background-color: #DEF3FD;
+  background-color: v-bind('colorsPokemon.ice');
 }
 
 .ground {
-  background-color: #f4e7da;
+  background-color: v-bind('colorsPokemon.ground');
 }
 
 .rock {
-  background-color: #d5d5d4;
+  background-color: v-bind('colorsPokemon.rock');
 }
 
 .fairy {
-  background-color: #fceaff;
+  background-color: v-bind('colorsPokemon.fairy');
 }
 
 .poison {
-  background-color: #98d7a5;
+  background-color: v-bind('colorsPokemon.poison');
 }
 
 .bug {
-  background-color: #f8d5a3;
+  background-color: v-bind('colorsPokemon.bug ');
 }
 
 .dragon {
-  background-color: #97b3e6;
+  background-color: v-bind('colorsPokemon.dragon');
 }
 
 .ghost {
-  background-color: #bc97e6;
+  background-color: v-bind('colorsPokemon.ghost');
 }
 
 .psychic {
-  background-color: #eaeda1;
+  background-color:v-bind('colorsPokemon.psychic');
 }
 
 .flying {
-  background-color: #F5F5F5;
+  background-color: v-bind('colorsPokemon.flying');
 }
 
 .fighting {
-  background-color: #E6E0D4;
+  background-color: v-bind('colorsPokemon.fighting');
 }
 
 .normal {
-  background-color: #F5F5F5;
+  background-color: v-bind('colorsPokemon.normal');
 }
 </style>
