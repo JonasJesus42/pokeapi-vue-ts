@@ -5,7 +5,7 @@
 
 <script lang="ts" setup>
 import { onBeforeMount } from 'vue'
-import { pokeList } from '@/services/metods'
+import {  pokeList } from '@/services/metods'
 import Navbar from '@/components/Navbar.vue'
 import {store} from './store'
 
@@ -38,6 +38,8 @@ const colorsPokemon = {
 }
 </script>
 <style>
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap');
 body {
   background-color: #b4d5bd;
 }

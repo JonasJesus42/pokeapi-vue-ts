@@ -121,9 +121,6 @@ const tema = {
 </script>
 
 <style scoped>
-@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;1,100&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap');
-
 p,
 h1 {
     font-family: 'Lato', sans-serif;
