@@ -9,7 +9,9 @@
 
 <script lang="ts" setup>
 import { store } from '@/store';
+import { onMounted } from 'vue';
 import Card from './Card.vue';
+
 </script>
 
 <style scoped>

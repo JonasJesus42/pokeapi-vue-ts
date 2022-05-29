@@ -5,7 +5,7 @@
 
 <script lang="ts" setup>
 import { onBeforeMount } from 'vue'
-import { getAllDataPokemon, pokeList } from '@/services/metods'
+import { pokeList } from '@/services/metods'
 import Navbar from '@/components/Navbar.vue'
 import {store} from './store'
 
@@ -14,7 +14,7 @@ onBeforeMount(async () => {
   if (store.state.pokemons.length <= 150) {
     store.state.pokemons.push(...pokemon)
   }
-    getAllDataPokemon()
+   
 })
 
 const colorsPokemon = {
