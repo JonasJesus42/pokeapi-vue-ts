@@ -11,10 +11,10 @@ import {store} from './store'
 
 onBeforeMount(async () => {
   let pokemon = await pokeList()
-  getAllDataPokemon()
   if (store.state.pokemons.length <= 150) {
     store.state.pokemons.push(...pokemon)
   }
+    getAllDataPokemon()
 })
 
 const colorsPokemon = {
