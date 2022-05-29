@@ -6,7 +6,7 @@
         </div>
         <div class="area-image">
             <img
-                :src="`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/${id}.svg`">
+                :src="`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png`">
         </div>
         <div class="btn-area d-flax">
             <button class="btn-choice" @click="handleClickChoic(store.state.detalesPokemon[props.index])">Choice</button>
