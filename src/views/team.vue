@@ -4,7 +4,7 @@
             <h2>You Team</h2>
         </div>
         <div class="containe">
-            <CardTeam v-for="(pokemon, index) in storeMyteam.state.myTeam" :obj="pokemon" :index="index" />
+            <CardTeam v-for="(pokemon, index) in storeMyteam.state.myTeam" :key="pokemon.id" :obj="pokemon" :index="index" />
         </div>
     </section>
 </template>
