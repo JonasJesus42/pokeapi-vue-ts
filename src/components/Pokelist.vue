@@ -1,6 +1,6 @@
 <template>
     <div class="pokelist">
-        <Card v-for="(pokemon, index) in store.state.pokemons"
+        <Card v-memo v-for="(pokemon, index) in store.state.pokemons"
            :index="index"
            :obj="pokemon"
         />
